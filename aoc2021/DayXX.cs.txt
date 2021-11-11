@@ -1,0 +1,21 @@
+﻿namespace aoc2021;
+
+/// <summary>
+/// Day XX: <see href="https://adventofcode.com/2021/day/XX"/>
+/// </summary>
+public sealed class DayXX : Day
+{
+    public DayXX() : base(XX, "Puzzle Name")
+    {
+    }
+
+    public override string Part1()
+    {
+        return "";
+    }
+
+    public override string Part2()
+    {
+        return "";
+    }
+}
