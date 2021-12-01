@@ -4,7 +4,7 @@ namespace aoc2021.test;
 public class DayTests
 {
     [DataTestMethod]
-    [DataRow(typeof(Day01), "", "")]
+    [DataRow(typeof(Day01), "1616", "1645")]
     public void CheckAllDays(Type dayType, string part1, string part2)
     {
         var s = Stopwatch.StartNew();
