@@ -12,23 +12,9 @@ public sealed class Day01 : Day
         _readings = Input.Select(int.Parse).ToList();
     }
 
-    public override string Part1()
-    {
-        var c = 0;
-        for (var i = 0; i < _readings.Count - 1; i++)
-        {
-            if (_readings[i + 1] > _readings[i]) c++;
-        }
-        return $"{c}";
-    }
+    public override string Part1() =>
+        Enumerable.Range(0, _readings.Count - 1).Count(i => _readings[i + 1] > _readings[i]).ToString();
 
-    public override string Part2()
-    {
-        var c = 0;
-        for (var i = 0; i < _readings.Count - 3; i++)
-        {
-            if (_readings[i + 3] > _readings[i]) c++;
-        }
-        return $"{c}";
-    }
+    public override string Part2() =>
+        Enumerable.Range(0, _readings.Count - 3).Count(i => _readings[i + 3] > _readings[i]).ToString();
 }
