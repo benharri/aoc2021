@@ -8,14 +8,17 @@ public abstract class Day
         PuzzleName = puzzleName;
     }
 
+    public static bool UseTestInput { get; set; }
+
     public int DayNumber { get; }
     public string PuzzleName { get; }
 
     protected IEnumerable<string> Input =>
         File.ReadLines(FileName);
 
-    protected string FileName =>
-        Path.Combine(AppDomain.CurrentDomain.BaseDirectory, $"input/day{DayNumber,2:00}.in");
+    public string FileName =>
+        Path.Combine(AppDomain.CurrentDomain.BaseDirectory,
+            $"input/{(UseTestInput ? "test" : "day")}{DayNumber,2:00}.in");
 
     public abstract string Part1();
     public abstract string Part2();

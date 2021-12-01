@@ -27,9 +27,7 @@ public sealed class Day01 : Day
         var c = 0;
         for (var i = 0; i < _readings.Count - 3; i++)
         {
-            var prev = _readings[i] + _readings[i + 1] + _readings[i + 2];
-            var curr = _readings[i + 1] + _readings[i + 2] + _readings[i + 3];
-            if (curr > prev) c++;
+            if (_readings[i + 3] > _readings[i]) c++;
         }
         return $"{c}";
     }
