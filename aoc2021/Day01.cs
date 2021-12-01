@@ -5,11 +5,32 @@
 /// </summary>
 public sealed class Day01 : Day
 {
-    public Day01() : base(1, "First Puzzle")
+    private readonly List<int> _readings;
+    
+    public Day01() : base(1, "Sonar Sweep")
     {
+        _readings = Input.Select(int.Parse).ToList();
     }
 
-    public override string Part1() => "";
+    public override string Part1()
+    {
+        var c = 0;
+        for (var i = 0; i < _readings.Count - 1; i++)
+        {
+            if (_readings[i + 1] > _readings[i]) c++;
+        }
+        return $"{c}";
+    }
 
-    public override string Part2() => "";
+    public override string Part2()
+    {
+        var c = 0;
+        for (var i = 0; i < _readings.Count - 3; i++)
+        {
+            var prev = _readings[i] + _readings[i + 1] + _readings[i + 2];
+            var curr = _readings[i + 1] + _readings[i + 2] + _readings[i + 3];
+            if (curr > prev) c++;
+        }
+        return $"{c}";
+    }
 }
