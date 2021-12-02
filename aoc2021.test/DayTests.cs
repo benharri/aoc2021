@@ -5,6 +5,7 @@ public class DayTests
 {
     [DataTestMethod]
     [DataRow(typeof(Day01), "1616", "1645")]
+    [DataRow(typeof(Day02), "2272262", "2134882034")]
     public void CheckAllDays(Type dayType, string part1, string part2)
     {
         var s = Stopwatch.StartNew();
@@ -36,6 +37,7 @@ public class DayTests
     
     [DataTestMethod]
     [DataRow(typeof(Day01), "7", "5")]
+    [DataRow(typeof(Day02), "150", "900")]
     public void CheckTestInputs(Type dayType, string part1, string part2)
     {
         Day.UseTestInput = true;
