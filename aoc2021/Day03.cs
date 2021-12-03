@@ -35,12 +35,14 @@ public sealed class Day03 : Day
     {
         var o = _report;
         var c = _report;
+
+        char MostCommon(int i, IReadOnlyCollection<string> report) =>
+            report.Count(r => r[i] == '1') >= report.Count / 2.0 ? '1' : '0';
         
         var i = 0;
         while (o.Count > 1)
         {
-            var most = o.Count(r => r[i] == '1') >= o.Count / 2.0 ? '1' : '0';
-            o = o.Where(r => r[i] == most).ToList();
+            o = o.Where(r => r[i] == MostCommon(i, o)).ToList();
             i++;
         }
         var o2 = Convert.ToInt64(o.Single(), 2);
@@ -48,8 +50,7 @@ public sealed class Day03 : Day
         i = 0;
         while (c.Count > 1)
         {
-            var most = c.Count(r => r[i] == '1') >= c.Count / 2.0 ? '0' : '1';
-            c = c.Where(r => r[i] == most).ToList();
+            c = c.Where(r => r[i] != MostCommon(i, c)).ToList();
             i++;
         }
         var co2 = Convert.ToInt64(c.Single(), 2);
