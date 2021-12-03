@@ -25,8 +25,8 @@ public sealed class Day03 : Day
             e.Append(ones > l ? '0' : '1');
         }
 
-        var gamma   = Convert.ToInt32(g.ToString(), 2);
-        var epsilon = Convert.ToInt32(e.ToString(), 2);
+        var gamma   = g.ToString().BigIntegerFromBinaryString();
+        var epsilon = e.ToString().BigIntegerFromBinaryString();
 
         return $"{gamma * epsilon}";
     }
@@ -42,18 +42,20 @@ public sealed class Day03 : Day
         var i = 0;
         while (o.Count > 1)
         {
-            o = o.Where(r => r[i] == MostCommon(i, o)).ToList();
+            var most = MostCommon(i, o);
+            o = o.Where(r => r[i] == most).ToList();
             i++;
         }
-        var o2 = Convert.ToInt64(o.Single(), 2);
+        var o2 = o.Single().BigIntegerFromBinaryString();
 
         i = 0;
         while (c.Count > 1)
         {
-            c = c.Where(r => r[i] != MostCommon(i, c)).ToList();
+            var most = MostCommon(i, c);
+            c = c.Where(r => r[i] != most).ToList();
             i++;
         }
-        var co2 = Convert.ToInt64(c.Single(), 2);
+        var co2 = c.Single().BigIntegerFromBinaryString();
 
         return $"{o2 * co2}";
     }

@@ -1,4 +1,6 @@
-﻿namespace aoc2021;
+﻿using System.Numerics;
+
+namespace aoc2021;
 
 public static class Extensions
 {
@@ -23,4 +25,21 @@ public static class Extensions
     /// <returns></returns>
     public static bool Contains(this Range range, int i) =>
         i >= range.Start.Value && i <= range.End.Value;
+    
+    /// <summary>
+    /// Creates a new BigInteger from a binary (Base2) string
+    /// <see href="https://gist.github.com/mjs3339/73042bc0e717f98796ee9fa131e458d4" />
+    /// </summary>
+    public static BigInteger BigIntegerFromBinaryString(this string binaryValue)
+    {
+        BigInteger res = 0;
+        if (binaryValue.Count(b => b == '1') + binaryValue.Count(b => b == '0') != binaryValue.Length) return res;
+        foreach (var c in binaryValue)
+        {
+            res <<= 1;
+            res += c == '1' ? 1 : 0;
+        }
+
+        return res;
+    }
 }
