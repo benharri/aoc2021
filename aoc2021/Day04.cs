@@ -10,7 +10,7 @@ public sealed class Day04 : Day
     
     public Day04() : base(4, "Giant Squid")
     {
-        _call = new(Input.First().Split(',').Select(int.Parse).ToList());
+        _call = Input.First().Split(',').Select(int.Parse).ToList();
         _boards = new();
 
         List<int> currentBoard = new();
