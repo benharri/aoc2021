@@ -7,6 +7,7 @@ public sealed class Day04 : Day
 {
     private readonly List<int> _call;
     private readonly List<List<int>> _boards;
+    private readonly int _size;
     
     public Day04() : base(4, "Giant Squid")
     {
@@ -28,11 +29,12 @@ public sealed class Day04 : Day
         }
 
         if (currentBoard.Any()) _boards.Add(currentBoard);
+        _size = (int)Math.Sqrt(currentBoard.Count);
     }
 
     public override string Part1()
     {
-        int i = 1, b = FirstWin(i);
+        int i = _size, b = FirstWin(i);
         while (b == -1)
         {
             i++;
@@ -49,7 +51,7 @@ public sealed class Day04 : Day
         for (var i = 0; i < _boards.Count; i++)
             wonBoards[i] = false;
 
-        var j = 0;
+        var j = _size;
         while (wonBoards.Values.Count(b => b) != wonBoards.Count - 1)
         {
             var c = _call.Take(j).ToHashSet();
@@ -71,15 +73,22 @@ public sealed class Day04 : Day
         return -1;
     }
 
-    private static bool HasWin(IReadOnlySet<int> c, IReadOnlyList<int> b) =>
-        c.Contains(b[0])  && c.Contains(b[1])  && c.Contains(b[2])  && c.Contains(b[3])  && c.Contains(b[4])  ||
-        c.Contains(b[5])  && c.Contains(b[6])  && c.Contains(b[7])  && c.Contains(b[8])  && c.Contains(b[9])  ||
-        c.Contains(b[10]) && c.Contains(b[11]) && c.Contains(b[12]) && c.Contains(b[13]) && c.Contains(b[14]) ||
-        c.Contains(b[15]) && c.Contains(b[16]) && c.Contains(b[17]) && c.Contains(b[18]) && c.Contains(b[19]) ||
-        c.Contains(b[20]) && c.Contains(b[21]) && c.Contains(b[22]) && c.Contains(b[23]) && c.Contains(b[24]) ||
-        c.Contains(b[0])  && c.Contains(b[5])  && c.Contains(b[10]) && c.Contains(b[15]) && c.Contains(b[20]) ||
-        c.Contains(b[1])  && c.Contains(b[6])  && c.Contains(b[11]) && c.Contains(b[16]) && c.Contains(b[21]) ||
-        c.Contains(b[2])  && c.Contains(b[7])  && c.Contains(b[12]) && c.Contains(b[17]) && c.Contains(b[22]) ||
-        c.Contains(b[3])  && c.Contains(b[8])  && c.Contains(b[13]) && c.Contains(b[18]) && c.Contains(b[23]) ||
-        c.Contains(b[4])  && c.Contains(b[9])  && c.Contains(b[14]) && c.Contains(b[19]) && c.Contains(b[24]);
+    private int At(int x, int y) => x * _size + y;
+
+    private bool HasWin(IReadOnlySet<int> c, IReadOnlyList<int> b)
+    {
+        for (var y = 0; y < _size; y++)
+        {
+            bool rowWin = true, colWin = true;
+            for (var x = 0; x < _size; x++)
+            {
+                rowWin &= c.Contains(b[At(x, y)]);
+                colWin &= c.Contains(b[At(y, x)]);
+            }
+
+            if (rowWin || colWin) return true;
+        }
+
+        return false;
+    }
 }
