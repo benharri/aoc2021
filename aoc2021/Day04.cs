@@ -43,26 +43,6 @@ public sealed class Day04 : Day
         return $"{called.Last() * _boards[b].Where(x => !called.Contains(x)).Sum()}";
     }
 
-    private int FirstWin(int i)
-    {
-        var c = _call.Take(i).ToHashSet();
-        for (var j = 0; j < _boards.Count; j++)
-            if (HasWin(c, _boards[j])) return j;
-        return -1;
-    }
-
-    private static bool HasWin(IReadOnlySet<int> c, IReadOnlyList<int> b) =>
-        c.Contains(b[0])  && c.Contains(b[1])  && c.Contains(b[2])  && c.Contains(b[3])  && c.Contains(b[4])  ||
-        c.Contains(b[5])  && c.Contains(b[6])  && c.Contains(b[7])  && c.Contains(b[8])  && c.Contains(b[9])  ||
-        c.Contains(b[10]) && c.Contains(b[11]) && c.Contains(b[12]) && c.Contains(b[13]) && c.Contains(b[14]) ||
-        c.Contains(b[15]) && c.Contains(b[16]) && c.Contains(b[17]) && c.Contains(b[18]) && c.Contains(b[19]) ||
-        c.Contains(b[20]) && c.Contains(b[21]) && c.Contains(b[22]) && c.Contains(b[23]) && c.Contains(b[24]) ||
-        c.Contains(b[0])  && c.Contains(b[5])  && c.Contains(b[10]) && c.Contains(b[15]) && c.Contains(b[20]) ||
-        c.Contains(b[1])  && c.Contains(b[6])  && c.Contains(b[11]) && c.Contains(b[16]) && c.Contains(b[21]) ||
-        c.Contains(b[2])  && c.Contains(b[7])  && c.Contains(b[12]) && c.Contains(b[17]) && c.Contains(b[22]) ||
-        c.Contains(b[3])  && c.Contains(b[8])  && c.Contains(b[13]) && c.Contains(b[18]) && c.Contains(b[23]) ||
-        c.Contains(b[4])  && c.Contains(b[9])  && c.Contains(b[14]) && c.Contains(b[19]) && c.Contains(b[24]);
-
     public override string Part2()
     {
         Dictionary<int, bool> wonBoards = new();
@@ -82,4 +62,24 @@ public sealed class Day04 : Day
         var b = wonBoards.Single(kvp => !kvp.Value).Key;
         return $"{called.Last() * _boards[b].Where(x => !called.Contains(x)).Sum()}";
     }
+
+    private int FirstWin(int i)
+    {
+        var c = _call.Take(i).ToHashSet();
+        for (var j = 0; j < _boards.Count; j++)
+            if (HasWin(c, _boards[j])) return j;
+        return -1;
+    }
+
+    private static bool HasWin(IReadOnlySet<int> c, IReadOnlyList<int> b) =>
+        c.Contains(b[0])  && c.Contains(b[1])  && c.Contains(b[2])  && c.Contains(b[3])  && c.Contains(b[4])  ||
+        c.Contains(b[5])  && c.Contains(b[6])  && c.Contains(b[7])  && c.Contains(b[8])  && c.Contains(b[9])  ||
+        c.Contains(b[10]) && c.Contains(b[11]) && c.Contains(b[12]) && c.Contains(b[13]) && c.Contains(b[14]) ||
+        c.Contains(b[15]) && c.Contains(b[16]) && c.Contains(b[17]) && c.Contains(b[18]) && c.Contains(b[19]) ||
+        c.Contains(b[20]) && c.Contains(b[21]) && c.Contains(b[22]) && c.Contains(b[23]) && c.Contains(b[24]) ||
+        c.Contains(b[0])  && c.Contains(b[5])  && c.Contains(b[10]) && c.Contains(b[15]) && c.Contains(b[20]) ||
+        c.Contains(b[1])  && c.Contains(b[6])  && c.Contains(b[11]) && c.Contains(b[16]) && c.Contains(b[21]) ||
+        c.Contains(b[2])  && c.Contains(b[7])  && c.Contains(b[12]) && c.Contains(b[17]) && c.Contains(b[22]) ||
+        c.Contains(b[3])  && c.Contains(b[8])  && c.Contains(b[13]) && c.Contains(b[18]) && c.Contains(b[23]) ||
+        c.Contains(b[4])  && c.Contains(b[9])  && c.Contains(b[14]) && c.Contains(b[19]) && c.Contains(b[24]);
 }
