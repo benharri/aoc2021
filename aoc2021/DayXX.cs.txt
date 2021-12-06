@@ -1,11 +1,11 @@
 ﻿namespace aoc2021;
 
 /// <summary>
-/// Day XX: <see href="https://adventofcode.com/2021/day/XX"/>
+/// Day P: <see href="https://adventofcode.com/2021/day/P"/>
 /// </summary>
 public sealed class DayXX : Day
 {
-    public DayXX() : base(XX, "Puzzle Name")
+    public DayXX() : base(P, "Puzzle Name")
     {
     }
 
