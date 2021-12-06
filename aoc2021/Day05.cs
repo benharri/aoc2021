@@ -11,9 +11,7 @@ public sealed class Day05 : Day
 
     private int Solve(bool diagonals = false) =>
         Input
-            .Where(s => !string.IsNullOrEmpty(s))
-            .Select(s => s.Split(" -> "))
-            .Select(a => a.Select(i => i.Split(',')).SelectMany(i => i.Select(int.Parse)).ToList())
+            .Select(s => Regex.Split(s, @"\D+").Select(int.Parse).ToList())
             .Where(t => diagonals || t[0] == t[2] || t[1] == t[3])
             .SelectMany(t =>
                 Enumerable.Range(0, Math.Max(Math.Abs(t[0] - t[2]), Math.Abs(t[1] - t[3])) + 1)
