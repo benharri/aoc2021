@@ -5,39 +5,31 @@
 /// </summary>
 public sealed class Day06 : Day
 {
-    private readonly List<int> _fishes;
+    private readonly long _p1, _p2;
+
     public Day06() : base(6, "Lanternfish")
     {
-        //UseTestInput = true;
-        _fishes = Input.First().Split(',').Select(int.Parse).ToList();
-    }
-
-    private static List<int> DayStep(List<int> state)
-    {
-        List<int> result = new();
+        var fishes = Input.First().Split(',').Select(long.Parse).ToList();
+        Dictionary<long, long> counts = new();
         
-        foreach (var fish in state)
+        for (var i = 0; i <= 8; i++)
+            counts[i] = fishes.Count(x => x == i);
+        
+        for (var i = 0; i < 256; i++)
         {
-            switch (fish)
-            {
-                case 0:
-                    result.Add(6);
-                    result.Add(8);
-                    break;
-                default:
-                    result.Add(fish - 1);
-                    break;
-            }
+            var breeders = counts[0];
+            for (var j = 0; j < 8; j++)
+                counts[j] = counts[j + 1];
+            counts[6] += breeders;
+            counts[8] = breeders;
+
+            if (i == 79) _p1 = counts.Values.Sum();
         }
 
-        return result;
+        _p2 = counts.Values.Sum();
     }
 
-    public override string Part1()
-    {
-        var fishes = Enumerable.Range(0, 80).Aggregate(_fishes, (current, _) => DayStep(current));
-        return $"{fishes.Count}";
-    }
+    public override string Part1() => $"{_p1}";
 
-    public override string Part2() => "";
+    public override string Part2() => $"{_p2}";
 }
