@@ -19,5 +19,5 @@ curl -s https://adventofcode.com/2021/day/"$day"/input \
 class=$(printf "Day%02d.cs" "$day")
 longDay=$(printf "%02d" "$day")
 if [ ! -f "$class" ]; then
-  sed -e "s/P/$day/g" -e "s/XX/$longDay/g" DayXX.cs.txt > "$class"
+  sed -e "s/Q/$day/g" -e "s/XX/$longDay/g" DayXX.cs.txt > "$class"
 fi
