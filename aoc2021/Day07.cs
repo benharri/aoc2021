@@ -5,14 +5,14 @@
 /// </summary>
 public sealed class Day07 : Day
 {
-    private readonly List<int> _tape;
+    private readonly List<long> _tape;
     
     public Day07() : base(7, "The Treachery of Whales")
     {
-        _tape = Input.First().Split(',').Select(int.Parse).OrderBy(i => i).ToList();
+        _tape = Input.First().Split(',').Select(long.Parse).OrderBy(i => i).ToList();
     }
 
-    private static int ArithmeticSumTo(int n) => n * (n + 1) / 2;
+    private static long ArithmeticSumTo(long n) => n * (n + 1) / 2L;
 
     public override string Part1()
     {
@@ -23,8 +23,8 @@ public sealed class Day07 : Day
     public override string Part2()
     {
         var avg = (decimal)_tape.Sum() / _tape.Count;
-        var floor = _tape.Select(t => ArithmeticSumTo(Math.Abs(t - (int)Math.Floor(avg)))).Sum();
-        var ceil = _tape.Select(t => ArithmeticSumTo(Math.Abs(t - (int)Math.Ceiling(avg)))).Sum();
+        var floor = _tape.Select(t => ArithmeticSumTo(Math.Abs(t - (long)Math.Floor(avg)))).Sum();
+        var ceil  = _tape.Select(t => ArithmeticSumTo(Math.Abs(t - (long)Math.Ceiling(avg)))).Sum();
         return $"{Math.Min(floor, ceil)}";
     }
 }
