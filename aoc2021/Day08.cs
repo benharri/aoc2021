@@ -9,19 +9,12 @@ public sealed class Day08 : Day
     {
     }
 
-    public override string Part1()
-    {
-        var count = 0;
-        foreach (var line in Input)
-        {
-            var outputs = line
-                .Split(" | ")[1]
-                .Split(' ', StringSplitOptions.TrimEntries | StringSplitOptions.RemoveEmptyEntries);
-            count += outputs.Count(o => new[] { 2, 3, 4, 7 }.Contains(o.Length));
-        }
-
-        return $"{count}";
-    }
+    public override string Part1() =>
+        Input
+            .Select(line => line.Split(" | ")[1].Split(' '))
+            .Select(outputs => outputs.Count(o => new[] { 2, 3, 4, 7 }.Contains(o.Length)))
+            .Sum()
+            .ToString();
 
     public override string Part2() => "";
 }
