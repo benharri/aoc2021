@@ -5,14 +5,15 @@
 /// </summary>
 public sealed class Day08 : Day
 {
-    private static readonly List<char[]> PossibleMappings = "abcdefg".ToCharArray().Permute().Select(m => m.ToArray()).ToList();
+    private static readonly List<char[]> PossibleMappings =
+        "abcdefg".ToCharArray().Permute().Select(m => m.ToArray()).ToList();
+    
     public Day08() : base(8, "Seven Segment Search")
     {
     }
 
-    private static int MatchDigit(string lit)
-    {
-        return lit switch
+    private static int MatchDigit(string lit) =>
+        lit switch
         {
             "1110111" => 0,
             "0010010" => 1,
@@ -26,7 +27,6 @@ public sealed class Day08 : Day
             "1111011" => 9,
             _ => -1
         };
-    }
 
     private static int Decode(string line)
     {
