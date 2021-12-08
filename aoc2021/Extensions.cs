@@ -42,4 +42,12 @@ public static class Extensions
 
         return res;
     }
+    
+    public static IEnumerable<IEnumerable<T>> Permute<T>(this IEnumerable<T> list)
+    {
+        var array = list as T[] ?? list.ToArray();
+        return array.Length == 1
+            ? new[] { array }
+            : array.SelectMany(t => Permute(array.Where(x => !x!.Equals(t))), (v, p) => p.Prepend(v));
+    }
 }

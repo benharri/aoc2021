@@ -49,7 +49,7 @@ public class DayTests
     [DataRow(typeof(Day05), "5", "12")]
     [DataRow(typeof(Day06), "5934", "26984457539")]
     [DataRow(typeof(Day07), "37", "168")]
-    [DataRow(typeof(Day08), "26", "")]
+    [DataRow(typeof(Day08), "26", "61229")]
     public void CheckTestInputs(Type dayType, string part1, string part2)
     {
         Day.UseTestInput = true;
