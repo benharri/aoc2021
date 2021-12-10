@@ -29,7 +29,7 @@ public abstract class Day
         var s = Stopwatch.StartNew();
         var part1 = Part1();
         s.Stop();
-        Console.Write($"Part 1: {part1,-15} ");
+        Console.Write($"Part 1: {part1,-25} ");
         Console.WriteLine(verbose ? $"{s.ScaleMilliseconds()}ms elapsed" : "");
 
         s.Reset();
@@ -37,7 +37,7 @@ public abstract class Day
         s.Start();
         var part2 = Part2();
         s.Stop();
-        Console.Write($"Part 2: {part2,-15} ");
+        Console.Write($"Part 2: {part2,-25} ");
         Console.WriteLine(verbose ? $"{s.ScaleMilliseconds()}ms elapsed" : "");
 
         Console.WriteLine();

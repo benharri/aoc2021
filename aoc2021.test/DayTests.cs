@@ -21,7 +21,7 @@ public class DayTests
         s.Stop();
         Assert.IsNotNull(day, "failed to instantiate day object");
         Assert.IsTrue(File.Exists(day.FileName));
-        Console.Write($"Day {day.DayNumber}: {day.PuzzleName,-15} ");
+        Console.Write($"Day {day.DayNumber,2}: {day.PuzzleName,-25} ");
         Console.WriteLine($"{s.ScaleMilliseconds()} ms elapsed in constructor");
 
         // part 1
@@ -29,7 +29,7 @@ public class DayTests
         s.Start();
         var part1Actual = day.Part1();
         s.Stop();
-        Console.Write($"Part1: {part1Actual,-15} ");
+        Console.Write($"Part 1: {part1Actual,-25} ");
         Console.WriteLine($"{s.ScaleMilliseconds()} ms elapsed");
         Assert.AreEqual(part1, part1Actual, $"Incorrect answer for Day {day.DayNumber} Part1");
 
@@ -38,7 +38,7 @@ public class DayTests
         s.Start();
         var part2Actual = day.Part2();
         s.Stop();
-        Console.Write($"Part2: {part2Actual,-15} ");
+        Console.Write($"Part 2: {part2Actual,-25} ");
         Console.WriteLine($"{s.ScaleMilliseconds()} ms elapsed");
         Assert.AreEqual(part2, part2Actual, $"Incorrect answer for Day {day.DayNumber} Part2");
     }
@@ -62,7 +62,7 @@ public class DayTests
         s.Stop();
         Assert.IsNotNull(day, "failed to instantiate day object");
         Assert.IsTrue(File.Exists(day.FileName));
-        Console.Write($"Day {day.DayNumber}: {day.PuzzleName,-15} ");
+        Console.Write($"Day {day.DayNumber,2}: {day.PuzzleName,-25} ");
         Console.WriteLine($"{s.ScaleMilliseconds()} ms elapsed in constructor");
 
         // part 1
@@ -70,7 +70,7 @@ public class DayTests
         s.Start();
         var part1Actual = day.Part1();
         s.Stop();
-        Console.Write($"Part1: {part1Actual,-15} ");
+        Console.Write($"Part 1: {part1Actual,-25} ");
         Console.WriteLine($"{s.ScaleMilliseconds()} ms elapsed");
         Assert.AreEqual(part1, part1Actual, $"Incorrect answer for Day {day.DayNumber} Part1");
 
@@ -79,7 +79,7 @@ public class DayTests
         s.Start();
         var part2Actual = day.Part2();
         s.Stop();
-        Console.Write($"Part2: {part2Actual,-15} ");
+        Console.Write($"Part 2: {part2Actual,-25} ");
         Console.WriteLine($"{s.ScaleMilliseconds()} ms elapsed");
         Assert.AreEqual(part2, part2Actual, $"Incorrect answer for Day {day.DayNumber} Part2");
     }
