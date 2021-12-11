@@ -5,7 +5,7 @@
 /// </summary>
 public sealed class Day11 : Day
 {
-    private int _currentAnswer;
+    private int _flashTally;
     private readonly int _flashesAfter100, _totalTurns;
     private readonly int[][] _octopusField;
     
@@ -36,14 +36,14 @@ public sealed class Day11 : Day
                 else
                     done = false;
             
-            if (_totalTurns == 100) _flashesAfter100 = _currentAnswer;
+            if (_totalTurns == 100) _flashesAfter100 = _flashTally;
             if (done) break;
         }
     }
 
     private void FlashAt(int r, int c)
     {
-        _currentAnswer++;
+        _flashTally++;
         _octopusField[r][c] = -1;
         foreach (var rr in new[] { -1, 0, 1 }.Select(dr => dr + r))
         foreach (var cc in new[] { -1, 0, 1 }.Select(dc => dc + c))
