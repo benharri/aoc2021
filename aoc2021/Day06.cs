@@ -29,7 +29,7 @@ public sealed class Day06 : Day
         _p2 = counts.Values.Sum();
     }
 
-    public override string Part1() => $"{_p1}";
+    public override object Part1() => _p1;
 
-    public override string Part2() => $"{_p2}";
+    public override object Part2() => _p2;
 }

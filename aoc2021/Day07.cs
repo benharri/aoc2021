@@ -14,17 +14,17 @@ public sealed class Day07 : Day
 
     private static long ArithmeticSumTo(long n) => n * (n + 1) / 2L;
 
-    public override string Part1()
+    public override object Part1()
     {
         var i = _tape[_tape.Count / 2];
-        return $"{_tape.Select(t => Math.Abs(t - i)).Sum()}";
+        return _tape.Select(t => Math.Abs(t - i)).Sum();
     }
 
-    public override string Part2()
+    public override object Part2()
     {
         var avg = (decimal)_tape.Sum() / _tape.Count;
         var floor = _tape.Select(t => ArithmeticSumTo(Math.Abs(t - (long)Math.Floor(avg)))).Sum();
         var ceil  = _tape.Select(t => ArithmeticSumTo(Math.Abs(t - (long)Math.Ceiling(avg)))).Sum();
-        return $"{Math.Min(floor, ceil)}";
+        return Math.Min(floor, ceil);
     }
 }

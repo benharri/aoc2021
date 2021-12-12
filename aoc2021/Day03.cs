@@ -12,7 +12,7 @@ public sealed class Day03 : Day
         _report = Input.ToList();
     }
 
-    public override string Part1()
+    public override object Part1()
     {
         var l = _report.Count / 2;
         var g = new StringBuilder();
@@ -28,10 +28,10 @@ public sealed class Day03 : Day
         var gamma   = g.ToString().BigIntegerFromBinaryString();
         var epsilon = e.ToString().BigIntegerFromBinaryString();
 
-        return $"{gamma * epsilon}";
+        return gamma * epsilon;
     }
 
-    public override string Part2()
+    public override object Part2()
     {
         var o = _report;
         var c = _report;
@@ -57,6 +57,6 @@ public sealed class Day03 : Day
         }
         var co2 = c.Single().BigIntegerFromBinaryString();
 
-        return $"{o2 * co2}";
+        return o2 * co2;
     }
 }

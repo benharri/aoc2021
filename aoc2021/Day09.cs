@@ -31,9 +31,9 @@ public sealed class Day09 : Day
         }
     }
 
-    public override string Part1() => _part1Sum.ToString();
+    public override object Part1() => _part1Sum;
 
-    public override string Part2()
+    public override object Part2()
     {
         var sizes = new List<long>();
         foreach (var (x, y) in _lowPoints)
@@ -66,7 +66,6 @@ public sealed class Day09 : Day
         return sizes
             .OrderByDescending(x => x)
             .Take(3)
-            .Aggregate(1L, (a, b) => a * b)
-            .ToString();
+            .Aggregate(1L, (a, b) => a * b);
     }
 }

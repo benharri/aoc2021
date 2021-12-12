@@ -9,7 +9,7 @@ public sealed class Day02 : Day
     {
     }
 
-    public override string Part1()
+    public override object Part1()
     {
         int horiz = 0, depth = 0;
         foreach (var line in Input)
@@ -30,10 +30,10 @@ public sealed class Day02 : Day
             }
         }
 
-        return $"{horiz * depth}";
+        return horiz * depth;
     }
 
-    public override string Part2()
+    public override object Part2()
     {
         int aim = 0, depth = 0, horiz = 0;
         foreach (var line in Input)
@@ -55,6 +55,6 @@ public sealed class Day02 : Day
             }
         }
 
-        return $"{horiz * depth}";
+        return horiz * depth;
     }
 }

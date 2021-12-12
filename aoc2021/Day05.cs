@@ -21,7 +21,7 @@ public sealed class Day05 : Day
             .GroupBy(k => k)
             .Count(k => k.Count() > 1);
 
-    public override string Part1() => $"{Solve()}";
+    public override object Part1() => Solve();
 
-    public override string Part2() => $"{Solve(diagonals: true)}";
+    public override object Part2() => Solve(diagonals: true);
 }

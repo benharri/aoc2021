@@ -55,7 +55,7 @@ public sealed class Day11 : Day
             }
     }
 
-    public override string Part1() => $"{_flashesAfter100}";
+    public override object Part1() => _flashesAfter100;
 
-    public override string Part2() => $"{_totalTurns}";
+    public override object Part2() => _totalTurns;
 }

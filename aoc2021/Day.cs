@@ -20,8 +20,8 @@ public abstract class Day
         Path.Combine(AppDomain.CurrentDomain.BaseDirectory,
             $"input/{(UseTestInput ? "test" : "day")}{DayNumber,2:00}.in");
 
-    public abstract string Part1();
-    public abstract string Part2();
+    public abstract object Part1();
+    public abstract object Part2();
 
     public void AllParts(bool verbose = true)
     {

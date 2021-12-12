@@ -75,12 +75,11 @@ public sealed class Day08 : Day
         return int.Parse(digits.ToString());
     }
 
-    public override string Part1() =>
+    public override object Part1() =>
         Input
             .Select(line => line.Split(" | ")[1].Split(' '))
             .Select(outputs => outputs.Count(o => new[] { 2, 3, 4, 7 }.Contains(o.Length)))
-            .Sum()
-            .ToString();
+            .Sum();
 
-    public override string Part2() => Input.Select(Decode).Sum().ToString();
+    public override object Part2() => Input.Select(Decode).Sum();
 }

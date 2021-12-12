@@ -29,7 +29,7 @@ public class DayTests
         // part 1
         s.Reset();
         s.Start();
-        var part1Actual = day.Part1();
+        var part1Actual = day.Part1().ToString();
         s.Stop();
         Console.Write($"Part 1: {part1Actual,-25} ");
         Console.WriteLine($"{s.ScaleMilliseconds()} ms elapsed");
@@ -38,7 +38,7 @@ public class DayTests
         // part 2
         s.Reset();
         s.Start();
-        var part2Actual = day.Part2();
+        var part2Actual = day.Part2().ToString();
         s.Stop();
         Console.Write($"Part 2: {part2Actual,-25} ");
         Console.WriteLine($"{s.ScaleMilliseconds()} ms elapsed");
@@ -72,7 +72,7 @@ public class DayTests
         // part 1
         s.Reset();
         s.Start();
-        var part1Actual = day.Part1();
+        var part1Actual = day.Part1().ToString();
         s.Stop();
         Console.Write($"Part 1: {part1Actual,-25} ");
         Console.WriteLine($"{s.ScaleMilliseconds()} ms elapsed");
@@ -81,7 +81,7 @@ public class DayTests
         // part 2
         s.Reset();
         s.Start();
-        var part2Actual = day.Part2();
+        var part2Actual = day.Part2().ToString();
         s.Stop();
         Console.Write($"Part 2: {part2Actual,-25} ");
         Console.WriteLine($"{s.ScaleMilliseconds()} ms elapsed");

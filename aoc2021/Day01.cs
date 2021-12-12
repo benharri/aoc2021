@@ -12,9 +12,9 @@ public sealed class Day01 : Day
         _readings = Input.Select(int.Parse).ToList();
     }
 
-    public override string Part1() =>
-        Enumerable.Range(0, _readings.Count - 1).Count(i => _readings[i + 1] > _readings[i]).ToString();
+    public override object Part1() =>
+        Enumerable.Range(0, _readings.Count - 1).Count(i => _readings[i + 1] > _readings[i]);
 
-    public override string Part2() =>
-        Enumerable.Range(0, _readings.Count - 3).Count(i => _readings[i + 3] > _readings[i]).ToString();
+    public override object Part2() =>
+        Enumerable.Range(0, _readings.Count - 3).Count(i => _readings[i + 3] > _readings[i]);
 }

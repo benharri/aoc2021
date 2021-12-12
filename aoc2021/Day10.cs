@@ -67,11 +67,11 @@ public sealed class Day10 : Day
         }
     }
 
-    public override string Part1() => $"{_score1}";
+    public override object Part1() => _score1;
 
-    public override string Part2()
+    public override object Part2()
     {
         var sorted = _scores2.OrderBy(i => i).ToList();
-        return $"{sorted[sorted.Count / 2]}";
+        return sorted[sorted.Count / 2];
     }
 }

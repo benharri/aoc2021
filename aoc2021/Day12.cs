@@ -54,9 +54,9 @@ public sealed class Day12 : Day
         return true;
     }
 
-    public override string Part1() =>
-        $"{WalkGraph(_edges, "start", new())}";
+    public override object Part1() =>
+        WalkGraph(_edges, "start", new());
 
-    public override string Part2() =>
-        $"{TraverseGraph(_edges, "start", new())}";
+    public override object Part2() =>
+        TraverseGraph(_edges, "start", new());
 }

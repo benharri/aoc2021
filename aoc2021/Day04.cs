@@ -32,7 +32,7 @@ public sealed class Day04 : Day
         _size = (int)Math.Sqrt(currentBoard.Count);
     }
 
-    public override string Part1()
+    public override object Part1()
     {
         int i = _size, b = FirstWin(i);
         while (b == -1)
@@ -42,10 +42,10 @@ public sealed class Day04 : Day
         }
 
         var called = _call.Take(i).ToHashSet();
-        return $"{called.Last() * _boards[b].Where(x => !called.Contains(x)).Sum()}";
+        return called.Last() * _boards[b].Where(x => !called.Contains(x)).Sum();
     }
 
-    public override string Part2()
+    public override object Part2()
     {
         Dictionary<int, bool> wonBoards = new();
         for (var i = 0; i < _boards.Count; i++)
@@ -62,7 +62,7 @@ public sealed class Day04 : Day
 
         var called = _call.Take(j).ToHashSet();
         var b = wonBoards.Single(kvp => !kvp.Value).Key;
-        return $"{called.Last() * _boards[b].Where(x => !called.Contains(x)).Sum()}";
+        return called.Last() * _boards[b].Where(x => !called.Contains(x)).Sum();
     }
 
     private int FirstWin(int i)
