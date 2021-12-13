@@ -3,6 +3,23 @@ namespace aoc2021.test;
 [TestClass]
 public class DayTests
 {
+    private const string Day13Actual = @"
+████▒███▒▒████▒▒██▒▒█▒▒█▒▒██▒▒█▒▒█▒█▒▒█
+█▒▒▒▒█▒▒█▒▒▒▒█▒█▒▒█▒█▒█▒▒█▒▒█▒█▒▒█▒█▒▒█
+███▒▒█▒▒█▒▒▒█▒▒█▒▒▒▒██▒▒▒█▒▒▒▒████▒█▒▒█
+█▒▒▒▒███▒▒▒█▒▒▒█▒██▒█▒█▒▒█▒▒▒▒█▒▒█▒█▒▒█
+█▒▒▒▒█▒▒▒▒█▒▒▒▒█▒▒█▒█▒█▒▒█▒▒█▒█▒▒█▒█▒▒█
+████▒█▒▒▒▒████▒▒███▒█▒▒█▒▒██▒▒█▒▒█▒▒██▒
+";
+
+    private const string Day13Test = @"
+█████
+█▒▒▒█
+█▒▒▒█
+█▒▒▒█
+█████
+";
+
     [DataTestMethod]
     [DataRow(typeof(Day01), "1616", "1645")]
     [DataRow(typeof(Day02), "2272262", "2134882034")]
@@ -16,6 +33,7 @@ public class DayTests
     [DataRow(typeof(Day10), "288291", "820045242")]
     [DataRow(typeof(Day11), "1613", "510")]
     [DataRow(typeof(Day12), "4549", "120535")]
+    [DataRow(typeof(Day13), "837", Day13Actual)]
     public void CheckAllDays(Type dayType, string part1, string part2)
     {
         var s = Stopwatch.StartNew();
@@ -58,6 +76,7 @@ public class DayTests
     [DataRow(typeof(Day10), "26397", "288957")]
     [DataRow(typeof(Day11), "1656", "195")]
     [DataRow(typeof(Day12), "226", "3509")]
+    [DataRow(typeof(Day13), "17", Day13Test)]
     public void CheckTestInputs(Type dayType, string part1, string part2)
     {
         Day.UseTestInput = true;
