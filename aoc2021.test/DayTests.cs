@@ -34,7 +34,7 @@ public class DayTests
     [DataRow(typeof(Day11), "1613", "510")]
     [DataRow(typeof(Day12), "4549", "120535")]
     [DataRow(typeof(Day13), "837", Day13Actual)]
-    [DataRow(typeof(Day14), "5656", "")]
+    [DataRow(typeof(Day14), "5656", "12271437788530")]
     public void CheckAllDays(Type dayType, string part1, string part2)
     {
         var s = Stopwatch.StartNew();
