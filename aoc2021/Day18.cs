@@ -106,11 +106,8 @@ public sealed class Day18 : Day
         return 3 * Magnitude(node?.Left) + 2 * Magnitude(node?.Right);
     }
 
-    public override object Part1()
-    {
-        var result = _fishes.Skip(1).Aggregate(Parse(_fishes.First()), (a, b) => Add(a, Parse(b)));
-        return Magnitude(result.Root);
-    }
+    public override object Part1() =>
+        Magnitude(_fishes.Skip(1).Aggregate(Parse(_fishes.First()), (a, b) => Add(a, Parse(b))).Root);
 
     public override object Part2()
     {
