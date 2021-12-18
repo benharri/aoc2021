@@ -33,7 +33,7 @@ public sealed class Day18 : Day
 
     private static Tree<int> Add(Tree<int> a, Tree<int> b)
     {
-        var reduced = new Tree<int>(new Tree<int>.Node(null, -1) {Left = a.Root, Right = b.Root});
+        var reduced = new Tree<int>(new(null, -1) {Left = a.Root, Right = b.Root});
         Reduce(reduced);
         return reduced;
     }
@@ -72,9 +72,9 @@ public sealed class Day18 : Day
         {
             if (node.Data != -1 || node.DistanceToParent(t.Root) < 4) return false;
             var left = SiblingOf(node, n => n.Right, n => n.Left);
-            if (left != null) left.Data += node.Left.Data;
+            if (left != null) left.Data += node.Left!.Data;
             var right = SiblingOf(node, n => n.Left, n => n.Right);
-            if (right != null) right.Data += node.Right.Data;
+            if (right != null) right.Data += node.Right!.Data;
 
             node.Left = null;
             node.Right = null;
