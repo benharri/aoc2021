@@ -38,7 +38,7 @@ public class DayTests
     [DataRow(typeof(Day15), "702", "2955")]
     [DataRow(typeof(Day16), "852", "19348959966392")]
     [DataRow(typeof(Day17), "12090", "5059")]
-    [DataRow(typeof(Day18), "4289", "")]
+    [DataRow(typeof(Day18), "4289", "4807")]
     public void CheckAllDays(Type dayType, string part1, string part2)
     {
         var s = Stopwatch.StartNew();
@@ -86,7 +86,7 @@ public class DayTests
     [DataRow(typeof(Day15), "40", "315")]
     [DataRow(typeof(Day16), "16", "15")]
     [DataRow(typeof(Day17), "45", "112")]
-    [DataRow(typeof(Day18), "4140", "")]
+    [DataRow(typeof(Day18), "4140", "3993")]
     public void CheckTestInputs(Type dayType, string part1, string part2)
     {
         Day.UseTestInput = true;

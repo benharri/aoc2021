@@ -112,5 +112,17 @@ public sealed class Day18 : Day
         return Magnitude(result.Root);
     }
 
-    public override object Part2() => "";
+    public override object Part2()
+    {
+        var best = 0L;
+        for (var i = 0; i < _fishes.Count; i++) 
+            best = _fishes
+                .Where((_, j) => i != j)
+                .Select(t => Add(Parse(_fishes[i]), Parse(t)))
+                .Select(result => Magnitude(result.Root))
+                .Prepend(best)
+                .Max();
+
+        return best;
+    }
 }
