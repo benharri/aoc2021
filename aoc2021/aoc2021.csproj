@@ -15,6 +15,7 @@
 
   <ItemGroup>
     <Using Include="System.Collections.Generic" />
+    <Using Include="System.Collections.Immutable" />
     <Using Include="System.Diagnostics" />
     <Using Include="System.Reflection" />
     <Using Include="System.Text" />
