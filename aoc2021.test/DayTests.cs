@@ -41,6 +41,8 @@ public class DayTests
     [DataRow(typeof(Day18), "4289", "4807")]
     // [DataRow(typeof(Day19), "338", "9862")] // takes too long and i don't feel like optimizing
     [DataRow(typeof(Day20), "5306", "17497")]
+    [DataRow(typeof(Day21), "512442", "346642902541848")]
+    [DataRow(typeof(Day22), "658691", "1228699515783640")]
     public void CheckAllDays(Type dayType, string part1, string part2)
     {
         var s = Stopwatch.StartNew();
@@ -91,6 +93,8 @@ public class DayTests
     [DataRow(typeof(Day18), "4140", "3993")]
     [DataRow(typeof(Day19), "79", "3621")]
     [DataRow(typeof(Day20), "35", "3351")]
+    [DataRow(typeof(Day21), "739785", "444356092776315")]
+    [DataRow(typeof(Day22), "590784", "39769202357779")]
     public void CheckTestInputs(Type dayType, string part1, string part2)
     {
         Day.UseTestInput = true;
