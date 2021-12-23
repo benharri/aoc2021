@@ -50,7 +50,7 @@ public sealed class Day21 : Day
             {
                 var pts = MoveSpaces(key, player1Pos);
                 if (player1Points + pts < 21)
-                    RollDiracDie(player1Points + pts, player2Points, pts, player2Pos, 2, (value * universes));
+                    RollDiracDie(player1Points + pts, player2Points, pts, player2Pos, 2, value * universes);
                 else
                     _player1Victories += universes * value;
             }
@@ -59,7 +59,7 @@ public sealed class Day21 : Day
             {
                 var pts = MoveSpaces(key, player2Pos);
                 if (player2Points + pts < 21)
-                    RollDiracDie(player1Points, player2Points + pts, player1Pos, pts, 1, (value * universes));
+                    RollDiracDie(player1Points, player2Points + pts, player1Pos, pts, 1, value * universes);
                 else
                     _player2Victories += universes * value;
             }

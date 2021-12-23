@@ -6,7 +6,7 @@
 public sealed class Day18 : Day
 {
     private readonly List<string> _fishes;
-    
+
     public Day18() : base(18, "Snailfish")
     {
         _fishes = Input.ToList();
@@ -17,7 +17,7 @@ public sealed class Day18 : Day
         static Tree<int>.Node ParseFish(Tree<int>.Node? parent, string input, ref int cursor)
         {
             if (input[cursor] != '[') return new(parent, input[cursor++] - '0');
-            
+
             var node = new Tree<int>.Node(parent, -1);
             cursor++;
             node.Left = ParseFish(node, input, ref cursor);
@@ -64,8 +64,7 @@ public sealed class Day18 : Day
         {
             if (reducer(tree, node)) return true;
             if (node.Left != null && ReduceRecurse(node.Left, reducer)) return true;
-            if (node.Right != null && ReduceRecurse(node.Right, reducer)) return true;
-            return false;
+            return node.Right != null && ReduceRecurse(node.Right, reducer);
         }
 
         bool Explode(Tree<int> t, Tree<int>.Node node)
@@ -112,7 +111,7 @@ public sealed class Day18 : Day
     public override object Part2()
     {
         var best = 0L;
-        for (var i = 0; i < _fishes.Count; i++) 
+        for (var i = 0; i < _fishes.Count; i++)
             best = _fishes
                 .Where((_, j) => i != j)
                 .Select(t => Add(Parse(_fishes[i]), Parse(t)))

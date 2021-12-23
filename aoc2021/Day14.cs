@@ -7,7 +7,7 @@ public sealed class Day14 : Day
 {
     private readonly string _template;
     private readonly Dictionary<string, string> _substitutionPairs;
-    
+
     public Day14() : base(14, "Extended Polymerization")
     {
         _template = Input.First();
@@ -17,7 +17,7 @@ public sealed class Day14 : Day
     private string DoStep(string input)
     {
         var result = new StringBuilder();
-        
+
         for (var i = 0; i < input.Length - 1; i++)
         {
             var k = input.Substring(i, 2);
@@ -46,7 +46,7 @@ public sealed class Day14 : Day
             moleculeCounts[k] = moleculeCounts.GetValueOrDefault(k) + 1;
         }
 
-        foreach (var i in Enumerable.Range(0, steps))
+        foreach (var _ in Enumerable.Range(0, steps))
         {
             var updated = new Dictionary<string, long>();
             foreach (var (molecule, count) in moleculeCounts)
@@ -58,7 +58,7 @@ public sealed class Day14 : Day
 
             moleculeCounts = updated;
         }
-        
+
         var elementCounts = new Dictionary<char, long>();
         foreach (var (molecule, count) in moleculeCounts)
         {
@@ -81,7 +81,7 @@ public sealed class Day14 : Day
             .OrderByDescending(g => g.Count())
             .Select(g => g.Count())
             .ToList();
-        
+
         return most.First() - most.Last();
     }
 

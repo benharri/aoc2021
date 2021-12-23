@@ -70,9 +70,10 @@ public sealed class Day20 : Day
 
         public int GetEnhanceInput(Point pt)
         {
+            var (x, y) = pt;
             var values =
-                Enumerable.Range(pt.Y - 1, 3)
-                    .SelectMany(_ => Enumerable.Range(pt.X - 1, 3), (yi, xi) => this[new(xi, yi)] ? 1 : 0);
+                Enumerable.Range(y - 1, 3)
+                    .SelectMany(_ => Enumerable.Range(x - 1, 3), (yi, xi) => this[new(xi, yi)] ? 1 : 0);
 
             return values.Aggregate(0, (p, n) => (p << 1) | n);
         }

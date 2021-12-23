@@ -55,13 +55,13 @@ public sealed class Day19 : Day
 
     private static Vector3 Translate(Vector3 p, Vector3 v) => (p.X + v.X, p.Y + v.Y, p.Z + v.Z);
     private static Vector3 Difference(Vector3 p1, Vector3 p2) => (p1.X - p2.X, p1.Y - p2.Y, p1.Z - p2.Z);
-    
+
     private static int Manhattan(Vector3 a, Vector3 b)
     {
         var (dx, dy, dz) = Difference(a, b);
         return Math.Abs(dx) + Math.Abs(dy) + Math.Abs(dz);
     }
-    
+
     private static (HashSet<Vector3> alignedBeacons, Vector3 translation, Vector3 up, int rotation)? Align(
         HashSet<Vector3> beacons1, IReadOnlyCollection<Vector3> beacons2)
     {
@@ -120,7 +120,7 @@ public sealed class Day19 : Day
 
         // Skip all scans and scanners that were merged
         return (scans.Where((_, i) => !toRemove.Contains(i)).ToList(),
-            scanners.Where((el, i) => !toRemove.Contains(i)).ToList());
+            scanners.Where((_, i) => !toRemove.Contains(i)).ToList());
     }
 
 
@@ -130,7 +130,7 @@ public sealed class Day19 : Day
         _scanners = scans.Select(_ => new HashSet<Vector3> { (0, 0, 0) }).ToList();
         while (scans.Count > 1)
             (scans, _scanners) = Reduce(scans, _scanners);
-        
+
         return scans[0].Count;
     }
 
