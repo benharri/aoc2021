@@ -109,13 +109,8 @@ public sealed class Day21 : Day
         for (var x = 1; x <= 3; x++)
         for (var y = 1; y <= 3; y++)
         for (var z = 1; z <= 3; z++)
-        {
-            var total = x + y + z;
-            if (!_possibleRollOutComes.ContainsKey(total))
-                _possibleRollOutComes[total] = 1;
-            else
-                _possibleRollOutComes[total]++;
-        }
+            _possibleRollOutComes[x + y + z] =
+                _possibleRollOutComes.GetValueOrDefault(x + y + z, 0ul) + 1ul;
 
         RollDiracDie(0, 0, _player1, _player2, 1, 1);
 
