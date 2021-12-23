@@ -48,7 +48,7 @@ public sealed class Day21 : Day
         if (playerTurn == 1)
             foreach (var (key, value) in _possibleRollOutComes)
             {
-                var pts = (key + player1Pos - 1) % 10 + 1;
+                var pts = MoveSpaces(key, player1Pos);
                 if (player1Points + pts < 21)
                     RollDiracDie(player1Points + pts, player2Points, pts, player2Pos, 2, (value * universes));
                 else
@@ -57,12 +57,29 @@ public sealed class Day21 : Day
         else
             foreach (var (key, value) in _possibleRollOutComes)
             {
-                var pts = (key + player2Pos - 1) % 10 + 1;
+                var pts = MoveSpaces(key, player2Pos);
                 if (player2Points + pts < 21)
                     RollDiracDie(player1Points, player2Points + pts, player1Pos, pts, 1, (value * universes));
                 else
                     _player2Victories += universes * value;
             }
+    }
+
+    private static int MoveSpaces(int numSpaces, int currentSpace)
+    {
+        int spaceLandOn, toAdd;
+
+        if (numSpaces > 10)
+            toAdd = numSpaces % 10;
+        else
+            toAdd = numSpaces;
+
+        if (currentSpace + toAdd > 10)
+            spaceLandOn = (currentSpace + toAdd) % 10;
+        else
+            spaceLandOn = currentSpace + toAdd;
+
+        return spaceLandOn;
     }
 
     public override object Part1()

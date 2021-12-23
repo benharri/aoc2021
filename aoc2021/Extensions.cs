@@ -50,4 +50,27 @@ public static class Extensions
             ? new[] { array }
             : array.SelectMany(t => Permute(array.Where(x => !x!.Equals(t))), (v, p) => p.Prepend(v));
     }
+    
+    public static int Pow(this int i, int power)
+    {
+        var pow = (uint) power;
+        var ret = 1;
+        while (pow != 0)
+        {
+            if ((pow & 1) == 1) ret *= i;
+            i *= i;
+            pow >>= 1;
+        }
+        return ret;
+    }
+    
+    public static IEnumerable<KeyValuePair<int, T>> Indexed<T>(this IEnumerable<T> source)
+    {
+        return source.Select((t, i) => new KeyValuePair<int, T>(i, t));
+    }
+    
+    public static IEnumerable<KeyValuePair<TKey, TValue>> WhereValue<TKey, TValue>(this IEnumerable<KeyValuePair<TKey, TValue>> source, Func<TValue, bool> func)
+    {
+        return source.Where(pair => func(pair.Value));
+    }
 }
