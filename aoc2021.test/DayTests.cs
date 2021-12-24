@@ -44,6 +44,7 @@ public class DayTests
     [DataRow(typeof(Day21), "512442", "346642902541848")]
     [DataRow(typeof(Day22), "658691", "1228699515783640")]
     [DataRow(typeof(Day23), "15365", "52055")]
+    [DataRow(typeof(Day24), "99299513899971", "93185111127911")]
     public void CheckAllDays(Type dayType, string part1, string part2)
     {
         var s = Stopwatch.StartNew();
@@ -72,7 +73,7 @@ public class DayTests
         Console.WriteLine($"{s.ScaleMilliseconds()} ms elapsed");
         Assert.AreEqual(part2, part2Actual, $"Incorrect answer for Day {day.DayNumber} Part2");
     }
-    
+
     [DataTestMethod]
     [DataRow(typeof(Day01), "7", "5")]
     [DataRow(typeof(Day02), "150", "900")]
